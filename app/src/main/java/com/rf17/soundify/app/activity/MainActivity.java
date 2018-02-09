@@ -16,6 +16,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.rf17.soundify.Soundify;
 import com.rf17.soundify.app.adapter.MyRecyclerViewAdapter;
@@ -60,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
             mRecyclerView.setLayoutManager(mLayoutManager);
             RecyclerView.Adapter mAdapter = new MyRecyclerViewAdapter(messages);
             mRecyclerView.setAdapter(mAdapter);
+            Toast.makeText(this, "ggg", Toast.LENGTH_SHORT).show();
 
             recyclerViewAdapter = (MyRecyclerViewAdapter) mAdapter;
 
@@ -72,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
             soundify.setSoundifyListener((data) -> {
                 String stringData = Soundify.bytesToString(data);
                 Log.e("dataa",stringData.toString().trim());
+
                 if(stringData.length() < 50) {
                     Message message = new Message(stringData.trim(), sdf.format(new Date()));
                     recyclerViewAdapter.addItem(message);
@@ -120,6 +123,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+
     }
 
     @Override
