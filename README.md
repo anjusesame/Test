@@ -1,3 +1,0 @@
-# Test
-
-Sound waves
